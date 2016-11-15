@@ -1,4 +1,5 @@
-# This repo has been moved to the [dev](http://github.com/cforlando/PetAdoption-API/tree/dev) branch.
+# Docker Containerized (DevOps) Branch of PetAdoption-API
+**Philip Van de Walker** (trafflux@gmail.com) - Slack (@philipv)
 
 ## Synopsis
 

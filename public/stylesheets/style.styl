@@ -1,0 +1,231 @@
+@charset "UTF-8";
+@import "_slick"
+@import "_slick-theme"
+
+$max-height-slide-image-px = 320px;
+
+$color-black = #000;
+
+@keyframes fadeIn
+  0%
+    opacity: 0;
+
+  100%
+    opacity: 1;
+
+[ng-cloak]
+  display: none;
+
+.loading-text
+  position: absolute;
+  left: 0;
+  top: 240px;
+  top: 50vh;
+  top: calc(50vh - .5em);
+  width: 100%;
+
+.loading-screen
+  transition opacity 400ms linear
+  position fixed
+  top 0
+  left 0
+  width 100%
+  bottom 0
+  right 0
+  z-index 999
+  background transparentify($color-black, 50%)
+  opacity 1
+  &.ng-hide
+    opacity 0
+
+body
+  animation: fadeIn 600ms ease;
+  overflow-x hidden;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  > md-progress-linear
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+.main-view
+  > &__content
+    overflow-y: auto;
+    overflow-x: hidden;
+
+a
+  color: #00B7FF
+
+md-sidenav
+  z-index 81 // ensures overlay over dialogs
+
+.action
+  &--bottommenu
+    md-icon
+      height: 1em;
+      width: 3em;
+      font-size: 4em;
+
+.user-avatar
+  height 1.5em
+  width auto
+  border-radius 50%;
+  overflow hidden
+
+.pet-list
+  .checkbox
+    position absolute
+    left 1em
+    top 1em
+    z-index 1
+  .tile-footer
+    cursor pointer
+
+.invisible-container
+  visibility hidden
+
+.nav-menus
+  text-align right
+  align-self center
+  flex-grow 1
+  white-space no-wrap
+
+.batch-edit-list
+  &__content
+    display flex
+    flex-wrap wrap
+  .pet-thumbnail
+    display inline-flex
+    height 1.5em
+    flex 1 1 1.5em
+    &__placholder
+      background-size 'cover'
+      background-position center
+      width 100%
+      height 100%
+
+.input
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  &__label
+    color: rgba(0, 0, 0, 0.54);
+    display block
+    font-weight: normal;
+    font-size em-auto(14 * .75, 14) // multiply by .75 to match scale transform on other labels
+    padding 0 em-auto(3px)
+
+.pet-data-form
+  .input
+    padding 0 1.5em
+    &__label
+      margin: 0 auto;
+    &--map
+      margin 0 auto 3em
+    &__input
+      width calc("100% - 4em", 75%) // kouto-swiss usage
+      ^[0]--no-default &
+        width calc("100% - 1.5em", 83%) // kouto-swiss usage
+    &__menu
+      margin-top 1em
+      ^[0]--date &
+        margin-top .5em
+    &__input,
+    &__menu
+      display inline-block
+      vertical-align top
+
+
+
+.fab-anchor
+  position: relative;
+
+.material-icons
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+
+.google-maps
+  background-color: lighten($color-black, 25%);
+  height: 20em;
+  margin 0 auto
+  max-height: 33vh
+  max-width 36em;
+
+.species-upload-form
+  &--hidden
+    display none
+
+.gallery
+  overflow hidden;
+  position relative
+  background-color lighten($color-black, 25%)
+  box-shadow inset 0px -2px 16px -2px $color-black
+  min-height em-auto(68px) // so images menu is always visible
+  max-height $max-height-slide-image-px
+  .slides
+    default-transition(opacity)
+  .slide
+    default-transition(opacity)
+    background-position center 25%
+    background-size cover
+    background-repeat no-repeat
+    text-align center
+    position relative
+    width 100%
+    &__img
+      min-height em-auto(72px)
+      height auto
+      margin 0 auto
+      max-height em-auto($max-height-slide-image-px)
+      max-width 100%
+      width auto
+      // opacity: 0
+      // ^[1].visible ^[-2..-1]
+      //   opacity 1
+  .btn-remove
+    position absolute
+    left em-auto(12)
+    bottom em-auto(12)
+    z-index 1
+  .btn-add
+    position absolute
+    right em-auto(12)
+    bottom em-auto(12)
+    z-index 1
+
+.file-input__form
+  display none
+
+.slick-slider
+  &.slick-dotted
+    margin-bottom 0
+
+.slick-dots
+  bottom auto
+  top: em-auto(12);
+
+.view
+  &--species
+    md-content
+      padding-bottom 7em
+  &--login
+    justify-content center
+    .view__content
+      text-align center
